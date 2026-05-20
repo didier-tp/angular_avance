@@ -1,0 +1,41 @@
+import { Component, inject , ChangeDetectorRef} from '@angular/core';
+import { FormsModule} from  '@angular/forms';
+import { ZipService } from '../common/service/zip.service';
+import { JsonPipe } from '@angular/common';
+import { ZippopotamResponse } from '../common/data/Zippopotam';
+
+@Component({
+  selector: 'app-zip',
+  imports: [FormsModule , JsonPipe],
+  templateUrl: './zip.component.html',
+  styleUrl: './zip.component.css',
+})
+export class ZipComponent {
+  zipService = inject(ZipService);
+  changeDetector = inject(ChangeDetectorRef);
+  zip:string = "?";
+  zippopotamData! : ZippopotamResponse ;
+
+  onZipData(){
+    this.zipService.getZippopotamData$(this.zip).subscribe({
+      next: (zipResp : ZippopotamResponse)=>{this.zippopotamData = zipResp ; this.changeDetector.markForCheck();},
+      error: (err )=>{console.log("erreur:" + JSON.stringify(err)) ; this.changeDetector.markForCheck();}
+    });
+  }
+
+  constructor(){
+    console.log("ZipComponent (constructor)")
+  }
+
+
+}
+
+/*
+
+<h3>zippopotam api call</h3>
+zip : <input [(ngModel)]="zip" /> &nbsp;
+<button (click)="onZipData()">getZippopotamData</button> <br>
+data : {{zippopotamData | json}}
+
+
+*/

@@ -1,0 +1,13 @@
+<h3>financial computation</h3>
+
+<lib-toggle-panel title="loan computing" [(panelOpenState)]="loanPanelOpen">
+    nbMonth: <input [(ngModel)]="nbMonth" /> <br/>
+    amount : <input [(ngModel)]="amount" /> <br/>
+    annualRate (%): <input [(ngModel)]="annualRate" /> <br/>
+    <hr/>
+    monthlyPayment: {{monthlyPayment()}}
+</lib-toggle-panel>
+
+
+
+<!-- <button (click)="onComputeMonthlyPayment()">compute loan monthly payment</button> <br/> -->

@@ -1,0 +1,24 @@
+<h1>welcome to my-app</h1>
+<!--
+<lib-toggle-panel title="partie1">
+    partie 1 (aaa)
+</lib-toggle-panel>
+
+<lib-toggle-panel title="partie2">
+    partie 2 (bbb)
+</lib-toggle-panel>
+-->
+
+<lib-selector 
+title="choix couleur"
+[values]="[ 'red' ,'green','blue' ]"
+[(choix)]="couleurChoisie"
+backColor="lightpink"
+width="300px" >
+</lib-selector>
+
+couleurChoisie = {{couleurChoisie}} <br/>
+
+<button (click)="onDialogConfirmResetToBlue()">reset to blue (with confirmDialog)</button>
+
+<div class="bg-red-200">avec tailwind et class="bg-red-200"</div>

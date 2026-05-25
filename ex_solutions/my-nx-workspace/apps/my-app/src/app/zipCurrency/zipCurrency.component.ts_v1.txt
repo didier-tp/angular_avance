@@ -5,12 +5,12 @@ import { JsonPipe } from '@angular/common';
 import { ZippopotamResponse } from '../common/data/Zippopotam';
 
 @Component({
-  selector: 'app-zip',
+  selector: 'app-zip-currency',
   imports: [FormsModule , JsonPipe],
-  templateUrl: './zip.component.html',
-  styleUrl: './zip.component.css',
+  templateUrl: './zipCurrency.component.html',
+  styleUrl: './zipCurrency.component.css',
 })
-export class ZipComponent {
+export class ZiCurrencyComponent {
   zipService = inject(ZipService);
   changeDetector = inject(ChangeDetectorRef);
   zip:string = "?";
@@ -24,7 +24,7 @@ export class ZipComponent {
   }
 
   constructor(){
-    console.log("ZipComponent (constructor)")
+    console.log("ZipCurrencyComponent (constructor)")
   }
 
 

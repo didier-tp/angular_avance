@@ -7,9 +7,9 @@ import { PersonComponent } from './person/person.component';
 
 export const appRoutes: Route[] = [
     { path : "welcome" , component : WelcomeComponent},
-    //{ path : "zip" , component : ZipComponent},
-    // { path : "zip" , loadComponent: () => import('./zip/zip.component').then(m => m.ZipComponent) },
-      { path : "zip" , loadChildren: () => import('./zip/zip.routes').then(m => m.zipRoutes) },
+    //{ path : "zip_currency" , component : ZiCurrencyComponent},
+    // { path : "zip_currency" , loadComponent: () => import('./zipCurrency/zipCurrency.component').then(m => m.ZipCurrencyComponent) },
+      { path : "zip_currency" , loadChildren: () => import('./zipCurrency/zipCurrency.routes').then(m => m.zipCurrencyRoutes) },
     { path : "catFact" , component : CatFactComponent , resolve : { catFact : catFactResolver}},
     { path : "financial" , component : FinancialComponent},
     { path : "person" , component : PersonComponent},

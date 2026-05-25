@@ -2,16 +2,16 @@ import { Component, inject , ChangeDetectorRef} from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-zip',
+  selector: 'app-zip-currency',
   imports: [RouterLink , RouterOutlet],
-  templateUrl: './zip.component.html',
-  styleUrl: './zip.component.css',
+  templateUrl: './zipCurrency.component.html',
+  styleUrl: './zipCurrency.component.css',
 })
-export class ZipComponent {
+export class ZipCurrencyComponent {
  
 
   constructor(){
-    console.log("ZipComponent (constructor)")
+    console.log("ZipCurrencyComponent (constructor)")
   }
 
 

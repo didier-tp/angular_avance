@@ -1,0 +1,66 @@
+import { ChangeDetectorRef, Component, inject, signal, Signal } from '@angular/core';
+import { CurrencyService } from '../common/service/currency.service';
+import { JsonPipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Currency, CurrencyOrder } from '../common/data/currency';
+import { Observable } from 'rxjs';
+import {toSignal} from '@angular/core/rxjs-interop';
+
+@Component({
+  selector: 'app-currency',
+  imports: [FormsModule , JsonPipe],
+  templateUrl: './currency.component.html',
+  styleUrl: './currency.component.css',
+})
+export class CurrencyComponent {
+   curencyService = inject(CurrencyService);
+   changeDetector = inject(ChangeDetectorRef);
+   currencyOrder : CurrencyOrder = "byCode"; //or "byValue"
+   sCurrencies = signal<Currency[]> ([]);
+
+   filteringCurrencyCodeString = "EUR,USD,GBP,JPY,CNY,DKK,KRW";
+
+   /*
+   //avec .toSignal():
+   usdChange$ = this.curencyService.getCurrentUSDChange$();
+   sUsdChange = toSignal(this.usdChange$);
+   */
+
+   //sans .toSignal():
+   sUsdChange = signal<number>(0);
+
+   ngOnInit(){
+     //pas besoin de this.changeDetector.markForCheck(); avec signal
+     this.curencyService.getCurrentUSDChange$().subscribe({
+      next: (usdChange : number)=>{this.sUsdChange.set(usdChange) ; },
+      error: (err )=>{console.log("erreur:" + JSON.stringify(err)) ; }
+    });
+   }
+
+   onRetreiveCurrencies(){
+    let filteringCurrencyCodeList : string[]|null = null;
+    if(this.filteringCurrencyCodeString.trim().length > 0)
+      filteringCurrencyCodeList = this.filteringCurrencyCodeString.split(",");
+
+    //pas besoin de this.changeDetector.markForCheck(); avec sCurrencies sous forme de signal 
+     this.curencyService.getCurrentCurrencies$(this.currencyOrder, filteringCurrencyCodeList).subscribe({
+      next: (currencies : Currency[])=>{this.sCurrencies.set(currencies) ; },
+      error: (err )=>{console.log("erreur:" + JSON.stringify(err)) ; }
+    });
+   }
+
+  }
+
+
+  /*
+  toSignal() can only be used within an injection context such as a constructor, a factory function,
+             a field initializer, or a function used with `runInInjectionContext`.
+    -----
+    toSignal() cannot be call in a onXxx() method fired by a button
+    ----
+    En d'autres termes , observable et toSignal doivent être systématiquement demandés dès le début
+    (soit dans constructeur , soit dans initialisation de d'attributs de la classe)
+
+    ----
+    Attention: selon versions, toSignal() n'est pas toujours parfaitement compatible avec l'api "federative micro-frontend"
+  */

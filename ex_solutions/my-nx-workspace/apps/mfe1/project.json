@@ -1,9 +1,9 @@
 {
-  "name": "my-app",
+  "name": "mfe1",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/my-app/src",
+  "sourceRoot": "apps/mfe1/src",
   "tags": [],
   "targets": {
     "build": {
@@ -11,10 +11,10 @@
       "options": {},
       "configurations": {
         "production": {
-          "target": "my-app:esbuild:production"
+          "target": "mfe1:esbuild:production"
         },
         "development": {
-          "target": "my-app:esbuild:development",
+          "target": "mfe1:esbuild:development",
           "dev": true
         }
       },
@@ -23,7 +23,7 @@
     "serve": {
       "executor": "@angular-architects/native-federation:build",
       "options": {
-        "target": "my-app:serve-original:development",
+        "target": "mfe1:serve-original:development",
         "rebuildDelay": 500,
         "dev": true,
         "cacheExternalArtifacts": false,
@@ -44,9 +44,9 @@
       "continuous": true,
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "my-app:build",
+        "buildTarget": "mfe1:build",
         "port": 4200,
-        "staticFilePath": "dist/apps/my-app/browser",
+        "staticFilePath": "dist/apps/mfe1/browser",
         "spa": true
       }
     },
@@ -56,18 +56,17 @@
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/apps/my-app",
-        "browser": "apps/my-app/src/main.ts",
-        "tsConfig": "apps/my-app/tsconfig.app.json",
+        "outputPath": "dist/apps/mfe1",
+        "browser": "apps/mfe1/src/main.ts",
+        "tsConfig": "apps/mfe1/tsconfig.app.json",
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/my-app/public"
+            "input": "apps/mfe1/public"
           }
         ],
         "styles": [
-          "apps/my-app/src/material-theme.scss",
-          "apps/my-app/src/styles.css"
+          "apps/mfe1/src/styles.css"
         ],
         "polyfills": [
           "es-module-shims"
@@ -102,15 +101,15 @@
       "executor": "@angular/build:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "my-app:esbuild:production"
+          "buildTarget": "mfe1:esbuild:production"
         },
         "development": {
-          "buildTarget": "my-app:esbuild:development"
+          "buildTarget": "mfe1:esbuild:development"
         }
       },
       "defaultConfiguration": "development",
       "options": {
-        "port": 4200
+        "port": 4201
       }
     }
   }

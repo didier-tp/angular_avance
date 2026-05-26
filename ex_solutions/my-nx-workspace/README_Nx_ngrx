@@ -1,0 +1,3 @@
+npm install @ngrx/store --save --legacy-peer-deps
+
+Errors with npx nx g @ngrx/store:ng-add --project=my-app

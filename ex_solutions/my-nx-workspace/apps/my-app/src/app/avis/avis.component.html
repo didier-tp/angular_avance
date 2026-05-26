@@ -1,0 +1,17 @@
+<p>avis sur ngrx</p>
+<!-- listeAvis: {{ listeAvis$ | async | json }} -->
+ <ul>
+ @let avisState = avisState$ | async;
+ @for(a of avisState?.listeAvis ; track a){
+   <li>{{a.num}} {{a.commentaire}} {{a.note}}/5
+       <button (click)="onDeleteAvis(a.num)">delete</button>
+  </li>
+  }
+ </ul>
+<hr/>
+commentaire:<input [(ngModel)]="avis.commentaire"/><br>
+note:<select [(ngModel)]="avis.note">
+    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+</select><br>
+
+<button (click)="onAddAvis()">add</button>

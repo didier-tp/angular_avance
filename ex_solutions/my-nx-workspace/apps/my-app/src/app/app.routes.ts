@@ -5,6 +5,7 @@ import { CatFactComponent } from './catFact/catFact.component';
 import { catFactResolver } from './common/resolver/cat-fact-resolver';
 import { PersonComponent } from './person/person.component';
 import { loadRemoteModule } from '@angular-architects/native-federation';
+import { AvisComponent } from './avis/avis.component';
 
 export const appRoutes: Route[] = [
     { path : "welcome" , component : WelcomeComponent},
@@ -15,5 +16,6 @@ export const appRoutes: Route[] = [
     { path : "catFact" , component : CatFactComponent , resolve : { catFact : catFactResolver}},
     { path : "financial" , component : FinancialComponent},
     { path : "person" , component : PersonComponent},
+    { path : "avis" , component : AvisComponent},
     { path : "" , redirectTo: "/welcome" , pathMatch : 'full'}
 ];

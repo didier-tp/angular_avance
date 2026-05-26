@@ -4,6 +4,8 @@ export class Currency{
         public value : number){}
 }
 
+export type CurrencyOrder = "byCode" | "byValue"; 
+
 export interface CurrencyMap{
     [index: string] :  number;
 }

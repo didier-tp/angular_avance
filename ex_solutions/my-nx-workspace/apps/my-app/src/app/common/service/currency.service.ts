@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { filter, map, mergeMap, Observable, tap } from 'rxjs';
-import { Currency, CurrencyMap, FixerIoResponse } from '../data/currency';
+import { Currency, CurrencyMap, CurrencyOrder, FixerIoResponse } from '../data/currency';
 
 
-export type CurrencyOrder = "byCode" | "byValue"; 
+
 
 @Injectable({
   providedIn: 'root',

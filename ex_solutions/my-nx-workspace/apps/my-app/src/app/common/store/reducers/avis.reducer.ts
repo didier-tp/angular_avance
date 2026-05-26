@@ -13,22 +13,34 @@ export const initialSubState: ReadonlyArray<AvisWithNum> = [
 
 export const initialState: AvisState= {
   lastId: 1,
-  listeAvis : initialSubState
+  listeAvis : initialSubState,
+  moyenne : 4
 };
+
+function calculerMoyenne( listeAvis: ReadonlyArray<AvisWithNum>):number{
+   let somme=0;
+   let n = 0;
+   for(const a of listeAvis){
+    somme+=Number(a.note);
+    n++;
+   }
+   return somme/n;
+}
 
 export const avisReducer = createReducer(
   initialState,
   on(AvisActions.addAvis, (state, { avis }) => { 
     const newLastId = state.lastId +1;
     let newAvis : AvisWithNum = { num: newLastId, commentaire:avis.commentaire , note: avis.note  }; 
-    return { lastId:newLastId,  listeAvis : [...state.listeAvis, newAvis] }
+    let newListeAvis = [...state.listeAvis, newAvis];
+    return { lastId : newLastId,  listeAvis : newListeAvis , moyenne : calculerMoyenne(newListeAvis)}
   }),
   on(AvisActions.deleteAvis, (state, { num }) => { 
-    let newSubState:AvisWithNum[]=[];
+    let newListeAvis:AvisWithNum[]=[];
     for(let a of state.listeAvis){
        if(a.num != num)
-          newSubState.push(a);
+          newListeAvis.push(a);
     }
-    return { lastId:state.lastId,  listeAvis :newSubState }
+    return { lastId : state.lastId,  listeAvis : newListeAvis , moyenne: calculerMoyenne(newListeAvis)}
   })
 );

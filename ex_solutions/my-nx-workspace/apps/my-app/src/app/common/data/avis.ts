@@ -10,4 +10,5 @@ export interface AvisWithNum extends Avis {
 export interface AvisState {
   lastId: number;
   listeAvis : ReadonlyArray<AvisWithNum>;
+  moyenne: number;
 }

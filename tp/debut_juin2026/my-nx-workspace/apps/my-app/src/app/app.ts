@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
+import { JsonPipe } from '@angular/common';
 
+
+//standalone : true dans @Component de angular 18?,19,20,21+
 @Component({
-  imports: [ RouterModule , HeaderComponent],
+  imports: [ RouterOutlet , HeaderComponent],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',

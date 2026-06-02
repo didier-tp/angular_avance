@@ -1,6 +1,7 @@
 import { Component, computed, effect, inject, signal } from '@angular/core';
 import { FinancialService } from '../common/service/financial.service';
 import { FormsModule } from '@angular/forms';
+import { TogglePanelComponent } from '@my-nx-workspace/my-lib';
 
 class Loan {
   constructor(public amount:number=0,
@@ -11,12 +12,15 @@ class Loan {
 
 @Component({
   selector: 'app-financial',
-  imports: [FormsModule],
+  imports: [FormsModule,TogglePanelComponent],
   templateUrl: './financial.component.html',
   styleUrl: './financial.component.css',
 })
 export class FinancialComponent {
   financialService = inject(FinancialService);
+
+  //loanOpenState = signal(false);
+  loanOpenState = signal(true);
  
   nbMonth=signal(120);
   amount=signal<number>(100000);

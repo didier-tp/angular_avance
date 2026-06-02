@@ -1,0 +1,18 @@
+<div class="cc">
+    <pre>
+        ** base : EUR / Euro **
+        USD : US Dollar , JPY : Japan Yen , 
+        GBP : Great Britain Pound (Livre sterling) ,
+        DKK : Danemark Couronne/Krone ,
+        CNY: ChiNa Yuan,  KRW : KoRea Won  , ...
+    </pre>
+    <label>order:</label>
+    <select [(ngModel)]="currencyOrder">
+        <option>byCode</option>
+        <option>byValue</option>
+    </select>  <br/>
+    filteringCurrencyCodes: <input [(ngModel)]="filteringCurrencyCodeString" size="48"/><br/>
+    <button (click)="onRetreiveCurrencies()">retreive currencies</button> <br>
+    <!-- currencies : {{currencies | json}} <br/> -->
+    currencies : {{sCurrencies() | json}} <br/>
+</div>

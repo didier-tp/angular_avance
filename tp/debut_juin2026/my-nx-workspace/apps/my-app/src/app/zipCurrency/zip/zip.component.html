@@ -1,0 +1,9 @@
+<div class="cz">
+    <!-- pour Paris:{{sZippopotamDataParis()|json}} -->
+    <label>zip:</label><input [(ngModel)]="zip"/> <br/>
+    <button (click)="onGetZippotpotamData()">getZippopotamData</button> <br/>
+    data: {{zippopotamData|json}}<br/>
+    geoCoord : {{ geoCoord | json}} <br/>
+    weather : {{ weather | json}} <br/>
+    weatherViaAsyncAwait : {{ weatherViaAsyncAwait | json}}
+</div>

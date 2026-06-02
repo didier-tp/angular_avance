@@ -1,26 +1,10 @@
-<p>zipCurrency</p>
-<!-- pour Paris:{{sZippopotamDataParis()|json}} -->
-<label>zip:</label><input [(ngModel)]="zip"/> <br/>
-<button (click)="onGetZippotpotamData()">getZippopotamData</button> <br/>
-data: {{zippopotamData|json}}<br/>
-geoCoord : {{ geoCoord | json}} <br/>
-weather : {{ weather | json}} <br/>
-weatherViaAsyncAwait : {{ weatherViaAsyncAwait | json}}
+<!-- <p>zipCurrency</p>-->
+<div class="c1">
+    <nav>
+    <a routerLink="zip">zip</a> &nbsp; 
+    <a routerLink="currency">currency</a> ...
+    </nav>    <hr/>
+    <router-outlet></router-outlet>
+    &nbsp; <!-- sous composant zip ou bien currency ou … -->
+</div>
 
-<hr/>
-<pre>
-    ** base : EUR / Euro **
-    USD : US Dollar , JPY : Japan Yen , 
-    GBP : Great Britain Pound (Livre sterling) ,
-    DKK : Danemark Couronne/Krone ,
-    CNY: ChiNa Yuan,  KRW : KoRea Won  , ...
-</pre>
-<label>order:</label>
-<select [(ngModel)]="currencyOrder">
-    <option>byCode</option>
-    <option>byValue</option>
-</select>  <br/>
-filteringCurrencyCodes: <input [(ngModel)]="filteringCurrencyCodeString" size="48"/><br/>
-<button (click)="onRetreiveCurrencies()">retreive currencies</button> <br>
-<!-- currencies : {{currencies | json}} <br/> -->
-currencies : {{sCurrencies() | json}} <br/>

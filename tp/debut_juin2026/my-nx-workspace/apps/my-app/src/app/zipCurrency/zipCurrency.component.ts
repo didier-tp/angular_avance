@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, signal } from '@angular/core';
 import { ZipService } from '../common/service/zip.service';
 import { ZippopotamResponse } from '../common/data/zippopotam';
 import { FormsModule } from '@angular/forms';
@@ -82,7 +82,8 @@ export class ZipCurrencyComponent {
 
   curencyService = inject(CurrencyService);
    currencyOrder : CurrencyOrder = "byCode"; //or "byValue"
-   currencies : Currency[] = [];
+  // currencies : Currency[] = []; //v1 sans signal
+  sCurrencies = signal<Currency[]>([]);
    filteringCurrencyCodeString = "EUR,USD,GBP,JPY,CNY,DKK,KRW";
 
    onRetreiveCurrencies(){
@@ -90,7 +91,9 @@ export class ZipCurrencyComponent {
     if(this.filteringCurrencyCodeString.trim().length > 0)
       filteringCurrencyCodeList = this.filteringCurrencyCodeString.split(",");
     this.curencyService.getCurrentCurrencies$(this.currencyOrder, filteringCurrencyCodeList).subscribe({
-      next: (currencies : Currency[])=>{this.currencies = currencies ; this.changeDetectorRef.markForCheck();},
+      next: (currencies : Currency[])=>{/*this.currencies = currencies ; */
+        this.sCurrencies.set(currencies);
+        /* this.changeDetectorRef.markForCheck(); inutile si  avec signal */ },
       error: (err )=>{console.log("erreur:" + JSON.stringify(err)) ; this.changeDetectorRef.markForCheck();}
     });
    }

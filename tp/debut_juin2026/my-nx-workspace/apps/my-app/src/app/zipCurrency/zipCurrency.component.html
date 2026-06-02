@@ -22,4 +22,5 @@ weatherViaAsyncAwait : {{ weatherViaAsyncAwait | json}}
 </select>  <br/>
 filteringCurrencyCodes: <input [(ngModel)]="filteringCurrencyCodeString" size="48"/><br/>
 <button (click)="onRetreiveCurrencies()">retreive currencies</button> <br>
-currencies : {{currencies | json}} <br/>
+<!-- currencies : {{currencies | json}} <br/> -->
+currencies : {{sCurrencies() | json}} <br/>

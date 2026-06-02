@@ -11,13 +11,13 @@ import { FormsModule } from '@angular/forms';
 })
 export class FinancialComponent {
   financialService = inject(FinancialService);
-  nbMonth=signal<number>(120);
+ 
+  nbMonth=signal(120);
   amount=signal<number>(100000);
   annualRate=signal<number>(2.5);
 
   monthlyPayment=computed(()=>this.financialService.monthlyPaymentValue(this.nbMonth(),this.amount(),this.annualRate()));
 
-  loanPanelOpen = true; //by default
 
   /*
   onComputeMonthlyPayment(){

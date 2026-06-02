@@ -8,7 +8,8 @@ import { CurrencyService } from '../common/service/currency.service';
 import { GeoCoord } from '../common/data/geoCoord';
 import { Weather } from '../common/data/weather';
 import { WeatherService } from '../common/service/weather.service';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-zip-currency',
@@ -25,6 +26,11 @@ export class ZipCurrencyComponent {
    private zipService=inject(ZipService);
   zip : string = "75001";
   zippopotamData : ZippopotamResponse | null=null;
+
+  /*
+  zippopotamDataParis$ : Observable<ZippopotamResponse>=this.zipService.getZipppotamData$("75001");
+  sZippopotamDataParis = toSignal(this.zippopotamDataParis$);
+  */
 
   onGetZippotpotamData(){
       this.zipService.getZipppotamData$(this.zip).subscribe({

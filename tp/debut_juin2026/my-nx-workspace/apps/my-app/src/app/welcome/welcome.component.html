@@ -1,5 +1,13 @@
 <p>welcome to my-app</p>
+
+<!--
 <lib-selector titre="choix de couleur"
               [choixPossibles]="couleursPossibles" 
               (choix)="onChoixCouleur($event)"></lib-selector>
+-->
+
+<lib-selector titre="choix de couleur"
+              [choixPossibles]="couleursPossibles" 
+              [(choix)]="couleurChoisie"></lib-selector>              
+
 couleurChoisie = {{couleurChoisie()}}

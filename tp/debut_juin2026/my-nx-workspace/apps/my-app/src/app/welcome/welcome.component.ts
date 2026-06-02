@@ -8,10 +8,12 @@ import {SelectorComponent} from '@my-nx-workspace/my-lib';
   styleUrl: './welcome.component.css',
 })
 export class WelcomeComponent {
-  couleurChoisie = signal("?");
+  couleurChoisie = signal("green");
   couleursPossibles=["red","green" , "blue" , "orange"];
+
+  /* // v1: avec output 
   onChoixCouleur(choix:string){
        this.couleurChoisie.set(choix);
   }
-  
+  */
 }

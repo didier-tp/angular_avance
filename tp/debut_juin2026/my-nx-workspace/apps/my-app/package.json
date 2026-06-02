@@ -1,0 +1,6 @@
+{
+  "name": "@my-nx-workspace/my-app",
+  "dependencies": {
+    "@my-nx-workspace/my-lib": "workspace:*"
+  }
+}

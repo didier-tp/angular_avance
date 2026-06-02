@@ -1,0 +1,13 @@
+.fondClair {
+    background-color: rgb(228, 189, 189);
+}
+
+.selected{
+    font-weight: bold;
+    color:blue;
+}
+
+.title {
+    text-decoration: underline;
+    font-weight: bold;
+}

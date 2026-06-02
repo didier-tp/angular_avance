@@ -13,4 +13,10 @@ import { JsonPipe } from '@angular/common';
 })
 export class App {
   protected title = 'my-app';
+
+  /*
+  onEssai(){
+    this.title="my-app2";
+  }
+    */
 }

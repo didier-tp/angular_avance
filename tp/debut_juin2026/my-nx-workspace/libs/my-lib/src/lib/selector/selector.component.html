@@ -1,0 +1,8 @@
+<div class="fondClair">
+    <p class="title">{{titre()}}</p>
+    <ul>
+    @for(c of choixPossibles() ; track c){
+    <li (click)="onSelection(c)" [class.selected]="c==selectionInterne">{{c}}</li>
+    }
+    </ul>
+</div>

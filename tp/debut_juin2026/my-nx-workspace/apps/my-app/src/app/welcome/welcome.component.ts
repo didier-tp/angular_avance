@@ -11,9 +11,11 @@ export class WelcomeComponent {
   couleurChoisie = signal("green");
   couleursPossibles=["red","green" , "blue" , "orange"];
 
-  /* // v1: avec output 
+  /*
+   // v1: avec output 
   onChoixCouleur(choix:string){
        this.couleurChoisie.set(choix);
   }
-  */
+ */
+  
 }

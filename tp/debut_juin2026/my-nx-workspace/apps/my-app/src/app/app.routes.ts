@@ -8,11 +8,13 @@ import { catfactResolver } from './common/resolver/catfact.resolver';
 import { LoginComponent } from './login/login.component';
 import { NotAuthorizedComponent } from './notAuthorized/notAuthorized.component';
 import { authGuard } from './common/guard/auth-guard';
+import { PersonComponent } from './person/person.component';
 
 export const appRoutes: Route[] = [
       { path: 'welcome',  component: WelcomeComponent },
        { path: 'dynamic',  component: DynamicComponent },
        { path: 'login',  component: LoginComponent },
+        { path: 'person',  component: PersonComponent },
        { path: 'notAuthorized',  component: NotAuthorizedComponent },
       //  { path: 'catfact',  component: CatfactComponent },
           { path: 'catfact',  component: CatfactComponent , resolve : {catfactData : catfactResolver } , canActivate : [authGuard] },

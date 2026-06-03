@@ -1,5 +1,5 @@
 <h3> signalForm (person) in responsive tailwind css grid </h3>
-
+<!--
  <form novalidate class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <div>
         <label class="block text-sm">firstname:</label>
@@ -25,11 +25,11 @@
         <span class="text-red-600">{{ageError()}}</span>
     </div> 
 </form>
-
-<hr/>
-<!--
-<lib-dynamic-form   [formRef]="personForm" ></lib-dynamic-form>
 -->
+<hr/>
+
+<lib-dynamic-form   [formRef]="personForm" ></lib-dynamic-form>
+
  <hr/>  
     person : <span [style.color]="okPerson?'green':'red'">{{ personModel() | json }}</span> <br/>
     <input type="button" value="login" [disabled]="personForm().invalid()" (click)="onPerson()" /> <br/>

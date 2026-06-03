@@ -2,12 +2,12 @@ import { NgClass, JsonPipe } from '@angular/common';
 import { Component, computed, effect, signal } from '@angular/core';
 import { email, form, FormField, min, minLength, pattern, required, ValidationError , FieldTree} from '@angular/forms/signals';
 import { Person, PersonData } from '../common/data/person';
-//import {DynamicFormComponent} from '@my-nx-workspace/my-lib';
+import {DynamicFormComponent} from '@my-nx-workspace/my-lib';
 
 
 @Component({
   selector: 'app-person',
-  imports: [FormField,NgClass,JsonPipe/*,DynamicFormComponent*/],
+  imports: [FormField,NgClass,JsonPipe,DynamicFormComponent],
   templateUrl: './person.component.html',
   styleUrl: './person.component.css',
 })
@@ -58,7 +58,7 @@ export class PersonComponent {
   }
   */
 
-
+/*
 
   firstnameError=computed(()=> this.personForm.firstname().errors().map(e=>e.message).join(" "));
   lastnameError=computed(()=> this.personForm.lastname().errors().map(e=>e.message).join(" "));
@@ -84,7 +84,7 @@ export class PersonComponent {
     'ng-invalid': !v, 
     }
  }
-
+*/
 
      
 }

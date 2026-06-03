@@ -44,7 +44,7 @@ describe('FinancialComponent', () => {
 
       //Vérifications des valeurs calculées dans la vue (template html):
       let spanMonthlyPaymentElt = compNativeElt.querySelector('#monthlyPayment');
-      console.log("from IHM,monthlyPayment:"  + spanMonthlyPaymentElt.textContent); 
+      console.log("from IHM,monthlyPayment:"  + spanMonthlyPaymentElt.innerText); 
       expect( Number( spanMonthlyPaymentElt.textContent ) ).toBeCloseTo(942.7,1);
   });
 });

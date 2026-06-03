@@ -2,6 +2,7 @@ import { Component, computed, effect, inject, signal } from '@angular/core';
 import { FinancialService } from '../common/service/financial.service';
 import { FormsModule } from '@angular/forms';
 import { TogglePanelComponent } from '@my-nx-workspace/my-lib';
+import { DecimalPipe } from '@angular/common';
 
 class Loan {
   constructor(public amount:number=0,
@@ -12,7 +13,7 @@ class Loan {
 
 @Component({
   selector: 'app-financial',
-  imports: [FormsModule,TogglePanelComponent],
+  imports: [FormsModule,TogglePanelComponent,DecimalPipe],
   templateUrl: './financial.component.html',
   styleUrl: './financial.component.css',
 })

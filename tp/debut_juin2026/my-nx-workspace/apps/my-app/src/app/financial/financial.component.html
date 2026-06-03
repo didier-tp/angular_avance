@@ -5,7 +5,7 @@
     amount : <input type="number" name="amount"  [(ngModel)]="amount" /> <br/>
     annualRate (%): <input type="number" name="annualRate"  [(ngModel)]="annualRate" /> <br/>
     <hr/>
-    monthlyPayment: <span id="monthlyPayment">{{monthlyPayment()}}</span>
+    monthlyPayment: <span id="monthlyPayment">{{monthlyPayment()|number:'1.0-2'}}</span>
 
 </lib-toggle-panel>
 

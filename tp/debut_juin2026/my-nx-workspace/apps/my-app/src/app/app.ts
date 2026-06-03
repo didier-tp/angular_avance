@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { JsonPipe } from '@angular/common';
@@ -14,9 +14,17 @@ import { JsonPipe } from '@angular/common';
 export class App {
   protected title = 'my-app';
 
+  cpt=signal(0);
+  
   /*
   onEssai(){
     this.title="my-app2";
   }
     */
+
+  ngOnInit(){
+    setInterval(() => {
+    this.cpt.update(n=>n+1);
+  },1000)
+  }
 }

@@ -2,9 +2,11 @@ import { Route } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ZipCurrencyComponent } from './zipCurrency/zipCurrency.component';
 import { FinancialComponent } from './financial/financial.component';
+import { DynamicComponent } from './dynamic/dynamic.component';
 
 export const appRoutes: Route[] = [
       { path: 'welcome',  component: WelcomeComponent },
+       { path: 'dynamic',  component: DynamicComponent },
      //  { path: 'zip_currency',  component: ZipCurrencyComponent }, 
      { path: 'zip_currency',   loadChildren: () => import('./zipCurrency/zipCurrency.routes').then((m) => m.zipCurrencyRoutes) }, 
       { path: 'financial',  component: FinancialComponent }, 

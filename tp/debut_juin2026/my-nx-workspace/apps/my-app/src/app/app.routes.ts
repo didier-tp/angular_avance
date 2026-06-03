@@ -3,10 +3,15 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ZipCurrencyComponent } from './zipCurrency/zipCurrency.component';
 import { FinancialComponent } from './financial/financial.component';
 import { DynamicComponent } from './dynamic/dynamic.component';
+import { CatfactComponent } from './catfact/catfact.component';
+import { catfactResolver } from './common/resolver/catfact.resolver';
 
 export const appRoutes: Route[] = [
       { path: 'welcome',  component: WelcomeComponent },
        { path: 'dynamic',  component: DynamicComponent },
+      //  { path: 'catfact',  component: CatfactComponent },
+          { path: 'catfact',  component: CatfactComponent , resolve : {catfactData : catfactResolver } },
+
      //  { path: 'zip_currency',  component: ZipCurrencyComponent }, 
      { path: 'zip_currency',   loadChildren: () => import('./zipCurrency/zipCurrency.routes').then((m) => m.zipCurrencyRoutes) }, 
       { path: 'financial',  component: FinancialComponent }, 
